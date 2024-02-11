@@ -8,4 +8,4 @@ const cli = new CLI("npm run", commandsPath);
 const shim = new Shim(cli);
 shim.execute(process.argv);
 
-console.log("UBQ Contribution CLI is running...");
+console.log("UBQ Airdrop CLI is running...");

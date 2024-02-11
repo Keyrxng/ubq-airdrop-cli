@@ -1,4 +1,3 @@
-All Payments
 Repository,Issue #,Amount,Currency,Payee,Type,URL
 .github,30,200,DAI,sergfeldman,assignee,https://github.com/Ubiquity/.github/issues/30
 .github,30,200,DAI,sergfeldman,assignee,https://github.com/Ubiquity/.github/issues/30
@@ -36,9 +35,9 @@ business-development,60,300,WXDAI,Hodlatoor,assignee,https://github.com/Ubiquity
 business-development,60,4.2,WXDAI,Hodlatoor,creator,https://github.com/Ubiquity/business-development/issues/60
 business-development,60,13.9,WXDAI,Hodlatoor,conversation,https://github.com/Ubiquity/business-development/issues/60
 business-development,62,200,WXDAI,Hodlatoor,assignee,https://github.com/Ubiquity/business-development/issues/62
-35,business-development,200,WXDAI,No assignee,assignee,https://github.com/Ubiquity/business-development/issues/35
-35,business-development,200,WXDAI,No assignee,assignee,https://github.com/Ubiquity/business-development/issues/35
-38,business-development,300,WXDAI,No assignee,assignee,https://github.com/Ubiquity/business-development/issues/38
+business-development,35,200,WXDAI,No assignee,assignee,https://github.com/Ubiquity/business-development/issues/35
+business-development,35,200,WXDAI,No assignee,assignee,https://github.com/Ubiquity/business-development/issues/35
+business-development,38,300,WXDAI,No assignee,assignee,https://github.com/Ubiquity/business-development/issues/38
 devpool-directory-bounties,2,100,WXDAI,gitcoindev,assignee,https://github.com/Ubiquity/devpool-directory-bounties/issues/2
 devpool-directory-bounties,2,111.6,WXDAI,rndquu,creator,https://github.com/Ubiquity/devpool-directory-bounties/issues/2
 devpool-directory-bounties,5,200,WXDAI,gitcoindev,assignee,https://github.com/Ubiquity/devpool-directory-bounties/issues/5
@@ -81,7 +80,7 @@ pay.ubq.fi,134,12.5,WXDAI,No assignee,assignee,https://github.com/Ubiquity/pay.u
 pay.ubq.fi,134,45.9,WXDAI,pavlovcik,creator,https://github.com/Ubiquity/pay.ubq.fi/issues/134
 pay.ubq.fi,142,300,WXDAI,Keyrxng,assignee,https://github.com/Ubiquity/pay.ubq.fi/issues/142
 pay.ubq.fi,142,109.2,WXDAI,pavlovcik,creator,https://github.com/Ubiquity/pay.ubq.fi/issues/142
-134,pay.ubq.fi,12.5,WXDAI,No assignee,assignee,https://github.com/Ubiquity/pay.ubq.fi/issues/134
+pay.ubq.fi,134,12.5,WXDAI,No assignee,assignee,https://github.com/Ubiquity/pay.ubq.fi/issues/134
 research,34,41.4,WXDAI,pavlovcik,creator,https://github.com/Ubiquity/research/issues/34
 research,40,200,WXDAI,pavlovcik,assignee,https://github.com/Ubiquity/research/issues/40
 research,41,12.5,WXDAI,pavlovcik,assignee,https://github.com/Ubiquity/research/issues/41
@@ -306,15 +305,15 @@ ubiquibot,831,18.75,WXDAI,Draeieg,assignee,https://github.com/Ubiquity/ubiquibot
 ubiquibot,831,15.9,WXDAI,0xcodercrane,creator,https://github.com/Ubiquity/ubiquibot/issues/831
 ubiquibot,838,187.5,WXDAI,molecula451,assignee,https://github.com/Ubiquity/ubiquibot/issues/838
 ubiquibot,865,25.8,WXDAI,rndquu,creator,https://github.com/Ubiquity/ubiquibot/issues/865
-234,ubiquibot,56.25,WXDAI,No assignee,assignee,https://github.com/Ubiquity/ubiquibot/issues/234
-260,ubiquibot,100,DAI,No assignee,assignee,https://github.com/Ubiquity/ubiquibot/issues/260
-278,ubiquibot,200,DAI,No assignee,assignee,https://github.com/Ubiquity/ubiquibot/issues/278
-291,ubiquibot,300,WXDAI,No assignee,assignee,https://github.com/Ubiquity/ubiquibot/issues/291
-439,ubiquibot,450,WXDAI,No assignee,assignee,https://github.com/Ubiquity/ubiquibot/issues/439
-468,ubiquibot,300,WXDAI,No assignee,assignee,https://github.com/Ubiquity/ubiquibot/issues/468
-489,ubiquibot,37.5,WXDAI,No assignee,assignee,https://github.com/Ubiquity/ubiquibot/issues/489
-500,ubiquibot,450,WXDAI,No assignee,assignee,https://github.com/Ubiquity/ubiquibot/issues/500
-526,ubiquibot,18.75,WXDAI,No assignee,assignee,https://github.com/Ubiquity/ubiquibot/issues/526
+ubiquibot,234,56.25,WXDAI,No assignee,assignee,https://github.com/Ubiquity/ubiquibot/issues/234
+ubiquibot,260,100,DAI,No assignee,assignee,https://github.com/Ubiquity/ubiquibot/issues/260
+ubiquibot,278,200,DAI,No assignee,assignee,https://github.com/Ubiquity/ubiquibot/issues/278
+ubiquibot,291,300,WXDAI,No assignee,assignee,https://github.com/Ubiquity/ubiquibot/issues/291
+ubiquibot,439,450,WXDAI,No assignee,assignee,https://github.com/Ubiquity/ubiquibot/issues/439
+ubiquibot,468,300,WXDAI,No assignee,assignee,https://github.com/Ubiquity/ubiquibot/issues/468
+ubiquibot,489,37.5,WXDAI,No assignee,assignee,https://github.com/Ubiquity/ubiquibot/issues/489
+ubiquibot,500,450,WXDAI,No assignee,assignee,https://github.com/Ubiquity/ubiquibot/issues/500
+ubiquibot,526,18.75,WXDAI,No assignee,assignee,https://github.com/Ubiquity/ubiquibot/issues/526
 ubiquibot-kernel,5,17,WXDAI,pavlovcik,creator,https://github.com/Ubiquity/ubiquibot-kernel/issues/5
 ubiquibot-kernel,5,259.9,WXDAI,gitcoindev,assignee,https://github.com/Ubiquity/ubiquibot-kernel/issues/5
 ubiquibot-telegram,3,150,WXDAI,seprintour,assignee,https://github.com/Ubiquity/ubiquibot-telegram/issues/3
@@ -413,10 +412,10 @@ ubiquity-dollar,826,75,WXDAI,gitcoindev,assignee,https://github.com/Ubiquity/ubi
 ubiquity-dollar,826,23.1,WXDAI,rndquu,creator,https://github.com/Ubiquity/ubiquity-dollar/issues/826
 ubiquity-dollar,839,26.7,WXDAI,pavlovcik,creator,https://github.com/Ubiquity/ubiquity-dollar/issues/839
 ubiquity-dollar,839,23.4,WXDAI,rndquu,conversation,https://github.com/Ubiquity/ubiquity-dollar/issues/839
-472,ubiquity-dollar,200,WXDAI,No assignee,assignee,https://github.com/Ubiquity/ubiquity-dollar/issues/472
-482,ubiquity-dollar,200,DAI,No assignee,assignee,https://github.com/Ubiquity/ubiquity-dollar/issues/482
-536,ubiquity-dollar,800,WXDAI,No assignee,assignee,https://github.com/Ubiquity/ubiquity-dollar/issues/536
-643,ubiquity-dollar,50,DAI,No assignee,assignee,https://github.com/Ubiquity/ubiquity-dollar/issues/643
-643,ubiquity-dollar,200,WXDAI,No assignee,assignee,https://github.com/Ubiquity/ubiquity-dollar/issues/643
-780,ubiquity-dollar,25,WXDAI,No assignee,assignee,https://github.com/Ubiquity/ubiquity-dollar/issues/780
+ubiquity-dollar,472,200,WXDAI,No assignee,assignee,https://github.com/Ubiquity/ubiquity-dollar/issues/472
+ubiquity-dollar,482,200,DAI,No assignee,assignee,https://github.com/Ubiquity/ubiquity-dollar/issues/482
+ubiquity-dollar,536,800,WXDAI,No assignee,assignee,https://github.com/Ubiquity/ubiquity-dollar/issues/536
+ubiquity-dollar,643,50,DAI,No assignee,assignee,https://github.com/Ubiquity/ubiquity-dollar/issues/643
+ubiquity-dollar,643,200,WXDAI,No assignee,assignee,https://github.com/Ubiquity/ubiquity-dollar/issues/643
+ubiquity-dollar,780,25,WXDAI,No assignee,assignee,https://github.com/Ubiquity/ubiquity-dollar/issues/780
 ubq.fi,16,12.5,DAI,pavlovcik,assignee,https://github.com/Ubiquity/ubq.fi/issues/16

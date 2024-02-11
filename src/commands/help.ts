@@ -2,9 +2,9 @@ import { Command, command, metadata, param } from "clime";
 import { genKeySet } from "../utils";
 
 @command({
-  brief: "Display the legend for the repository names",
+  brief: "Display the legend for the repository names.",
   description:
-    "Use any legend key like: ``yarn init key <key>`` to filter the repositories by the first letter of the name.",
+    "Use any legend key like: ``yarn single <key>`` to filter the repositories by the first letter of the name.",
 })
 export default class extends Command {
   @metadata

@@ -1,6 +1,9 @@
 import { Command, command, metadata, param } from "clime";
 import { invoke } from "../invoke";
 
+// Tally command
+// Takes around 1 minute to complete using async/await (rate limited using promises)
+
 @command({
   brief: "Tally UBQ airdrop.",
   description:

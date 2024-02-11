@@ -17,18 +17,14 @@
     "skipDefaultLibCheck": true,
     "newLine": "LF",
     "outDir": "dist",
-    "plugins": [
-      {
-        "name": "tslint-language-service"
-      }
-    ]
+    "plugins": []
   },
   "include": [
     "src",
-    "types"
   ],
   "resolveJsonModule": true,
   "exclude": [
     "node_modules",
+    "dist"
   ]
 }

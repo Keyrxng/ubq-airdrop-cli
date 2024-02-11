@@ -2,9 +2,9 @@ import { Command, command, metadata, param } from "clime";
 import { invoke } from "../invoke";
 
 @command({
-  brief: "Tally UBQ airdrop from xxxx-xx-xx.",
+  brief: "Tally UBQ airdrop from YYYY-MM-DD.",
   description:
-    "Includes all repositories with payments on dev branch since xxxx-xx-xx.",
+    "Includes all repositories with payments on dev branch since YYYY-MM-DD.",
 })
 export default class extends Command {
   @metadata
