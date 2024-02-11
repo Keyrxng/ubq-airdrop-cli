@@ -16,10 +16,13 @@ const GITHUB_GRAPHQL_API = "https://api.github.com/graphql";
 
 export async function invoke(timeFrom?: string) {
   const org = "Ubiquity";
-  const since = timeFrom ? timeFrom : "2023-01-01T00:00:00.000Z";
+  const since = "2023-01-01T00:00:00.000Z";
   const loader = await loadingBar();
 
-  const data: CSVData | undefined = await processRepositories(org, since);
+  const data: CSVData | undefined = await processRepositories(
+    org,
+    timeFrom ? timeFrom : since
+  );
 
   if (!data) {
     throw new Error("No data found processing all repositories.");
@@ -28,7 +31,6 @@ export async function invoke(timeFrom?: string) {
   await writeCSV(data);
 
   clearInterval(loader);
-  process.exit(0);
 }
 
 export async function fetchPublicRepositories(
@@ -126,11 +128,7 @@ export async function fetchPaymentsForRepository(
       $since: DateTime
     ) {
       repository(owner: $org, name: $repoName) {
-        issues(
-          first: 100
-          after: $cursor
-          filterBy: { since: $since, states: [CLOSED, OPEN] }
-        ) {
+        issues(first: 100, after: $cursor, filterBy: { since: $since }) {
           pageInfo {
             hasNextPage
             endCursor
@@ -182,6 +180,22 @@ export async function fetchPaymentsForRepository(
         issue.node.assignees.edges.length > 0
           ? issue.node.assignees.edges[0].node?.login
           : "No assignee";
+
+      /**
+       * the below works well enough but it's incorrectly assigning the occasional payment
+       * cases which I've seen:
+       * - New assignee on an issue that has already been paid out
+       *   see: https://github.com/Ubiquity/research/issues/40
+       *   200 paid to hodl but pav is now the assigned so it's been assigned to pav in this particular case
+       *
+       * - Payments that have been redacted and added as a debt on their next payment
+       *   see: https://github.com/Ubiquity/business-development/issues/38
+       *   300 paid to hodl but 300 debt added
+       *
+       * - deleted GH accounts see: @AnakinSkywalker who is now @Ghost
+       *
+       * Will need to think about how to handle these cases and try to make this more robust
+       */
 
       for (const comment of issue.node.comments.edges) {
         const body = comment.node.body;

@@ -12,11 +12,18 @@ This CLI tool tallies UBQ airdrop amounts for contributors. It does this by pars
     ```bash
     # npm install
     ```
-3. **Run the CLI**
+3. **Build the CLI**
+    - Build the CLI using the available commands.
+
+    ```bash
+    # npm run build
+    ```
+
+4. **Run the CLI**
     - Run the CLI using the available commands.
 
     ```bash
-    # npm start
+    # npm run start
     ```
 
 ## Commands
@@ -47,23 +54,31 @@ This CLI tool tallies UBQ airdrop amounts for contributors. It does this by pars
     ```bash
     # yarn tally-from [date]
     ```
-5. **help**
+
+5. **tally-multi-csv**
+    - Tally UBQ airdrop for all indexable repositories since the start of 2023 and output repository-specific CSV files.
+
+    ```bash
+    # yarn tally-multi-csv
+    ```
+
+6. **help**
     - Display a list of indexable repositories and their shortcodes.
 
     ```bash
-    # yarn help
+    # yarn run help
     ```
 
 ## Output
 The CLI outputs three CSV files:
 
-1. [**All Payments**](all_payments.csv)
+1. [**All Payments**](all_repos_all_payments.csv)
     - Includes payments with or without an assignee. Manual checking required for entries without an assignee which is often due to issues having been reopened or manual payouts because of issues with the bot.
 
-2. [**Contributors**](contributors.csv)
+2. [**Contributors**](all_repos_contributors.csv)
     - Provides a username-to-UBQ mapping for total UBQ earned from all payments across all repositories since the chosen time.
 
-3. [**No Payments**](no_payments.csv)
+3. [**No Payments**](all_repos_no_payments.csv)
     - Lists repositories that have been indexed as having no payments released, including archived and inactive repositories. Manual checking may be required.
    
 
@@ -71,17 +86,27 @@ The CLI outputs three CSV files:
 1. Tally UBQ airdrop for a specific repository or shortcode:
 
     ```bash
-    # npm single dollar (shortcode) or npm single ubiquity-dollar
+    # npm run single dollar || npm single ubiquity-dollar
     ```
 
 2. Tally UBQ airdrop for all indexable repositories since the start of 2023:
 
     ```bash
-    # npm tally
+    # npm run tally
     ```
 
 3. Tally UBQ airdrop for all indexable repositories since a specified date:
 
     ```bash
-    # npm tally-from 2023-01-01
+    # npm run tally-from 2023-01-01
+    ```
+4. Tally UBQ airdrop for all indexable repositories since the start of 2023 and output repository-specific CSV files:
+
+    ```bash
+    # npm run tally-multi-csv
+    ```
+5. Display a list of indexable repositories and their shortcodes:
+
+    ```bash
+    # npm run help
     ```

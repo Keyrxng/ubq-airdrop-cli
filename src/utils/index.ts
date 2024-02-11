@@ -36,21 +36,19 @@ export async function genKeySet() {
   return mutateDupes;
 }
 
-// Removes duplicate payments
-export function removeDuplicates(arr: any[]) {
-  return arr.filter(
-    (v, i, a) => a.findIndex((t) => t.issueNumber === v.issueNumber) === i
+// Removes duplicates
+export function removeDuplicates<T>(arr: T[]): T[] {
+  const unique = arr.filter(
+    (v, i, a) =>
+      a.findIndex((t) => JSON.stringify(t) === JSON.stringify(v)) === i
   );
+  return unique;
 }
 
 // Removes duplicate contributors and sums their balances
-export function removeDuplicatesContributors(cont: Contributor) {
-  return Object.keys(cont).reduce((acc, curr) => {
-    if (acc[curr]) {
-      acc[curr] += cont[curr];
-    } else {
-      acc[curr] = cont[curr];
-    }
+export function removeDuplicatesContributors(cont: Contributor): Contributor {
+  return Object.entries(cont).reduce((acc, [curr, value]) => {
+    acc[curr] = (acc[curr] || 0) + value;
     return acc;
   }, {} as Contributor);
 }
@@ -65,7 +63,7 @@ export async function loadingBar() {
   }, 100);
 }
 
-// Converts arrays and objects to CSV strings
+// Converts data to CSV strings
 export async function dataToCSV(
   json: PaymentInfo[] | NoPayments[] | Contributor
 ) {
@@ -77,13 +75,28 @@ export async function dataToCSV(
 
   try {
     if (Array.isArray(json)) {
-      removeDuplicates(json);
-      csv = json
-        .sort((a: { repoName: string }, b: { repoName: string }) =>
-          a.repoName.localeCompare(b.repoName)
-        )
-        .map((row) => Object.values(row).join(","))
-        .join("\n");
+      if (json[0].url.includes("issue")) {
+        json = removeDuplicates(json as PaymentInfo[]);
+        csv = json
+          .sort((a: { repoName: string }, b: { repoName: string }) =>
+            a.repoName.localeCompare(b.repoName)
+          )
+          .map((row) => Object.values(row).join(","))
+          .join("\n");
+      } else {
+        json = removeDuplicates(json as NoPayments[]);
+        csv = json
+          .sort(
+            (a: { lastCommitDate: string }, b: { lastCommitDate: string }) => {
+              return (
+                new Date(b.lastCommitDate).getTime() -
+                new Date(a.lastCommitDate).getTime()
+              );
+            }
+          )
+          .map((row) => Object.values(row).join(","))
+          .join("\n");
+      }
     } else {
       removeDuplicatesContributors(json);
       csv = Object.entries(json)
@@ -99,7 +112,7 @@ export async function dataToCSV(
 }
 
 // Outputs the results from `tally` and `tally-from` to three CSV files
-export async function writeCSV(data: CSVData) {
+export async function writeCSV(data: CSVData, title?: string) {
   console.log("Writing CSVs...");
   const groups = [
     {
@@ -134,7 +147,9 @@ export async function writeCSV(data: CSVData) {
     csv += await dataToCSV(group.data);
 
     await writeToFile(
-      `${process.cwd()}/${group.name.toLowerCase().replace(" ", "_")}.csv`,
+      `${process.cwd()}/${title ? `${title}_` : "all_repos_"}${group.name
+        .toLowerCase()
+        .replace(" ", "_")}.csv`,
       csv
     );
   }
@@ -146,84 +161,5 @@ export async function writeToFile(fileName: string, data: string) {
     await writeFile(fileName, data);
   } catch (err) {
     console.error(err);
-  }
-}
-
-// Outputs the results from `single` to four CSV files
-export async function writeCsvs(
-  repo: Repositories,
-  contributors: Contributor,
-  allPayments: PaymentInfo[],
-  allNoAssigneePayments: PaymentInfo[],
-  noPayments: NoPayments[]
-) {
-  try {
-    if (Object.keys(contributors).length === 0) {
-      console.log("No payments found for this repo.");
-    } else {
-      const csvObjects = Object.entries(contributors);
-
-      const csv: Contributor = {};
-      for (const [key, value] of csvObjects) {
-        csv[key] = value;
-      }
-      const rawBalanceCsv = await dataToCSV(csv);
-
-      await writeToFile(`${repo.name}-raw-balances.csv`, rawBalanceCsv);
-    }
-  } catch (err) {
-    console.log(err);
-  }
-
-  try {
-    if (allPayments.length === 0) {
-      console.log("No payments found for this repo.");
-    } else {
-      const allPaymentsCsv = await dataToCSV(
-        allPayments.sort((a: { repoName: string }, b: { repoName: any }) =>
-          a.repoName.localeCompare(b.repoName)
-        )
-      );
-
-      await writeToFile(`${repo.name}-all-payments.csv`, allPaymentsCsv);
-    }
-  } catch (err) {
-    console.log(err);
-  }
-
-  try {
-    if (allNoAssigneePayments.length === 0) {
-      console.log("No manual checks needed.");
-    } else {
-      const noAssigneeCsv = await dataToCSV(
-        allNoAssigneePayments.sort(
-          (a: { repoName: string }, b: { repoName: any }) =>
-            a.repoName.localeCompare(b.repoName)
-        )
-      );
-
-      await writeToFile(
-        `${repo.name}-manual-checks-required.csv`,
-        noAssigneeCsv
-      );
-    }
-  } catch (err) {
-    console.log(err);
-  }
-
-  try {
-    if (noPayments.length === 0) {
-      console.log("All payments found are assigned.");
-    } else {
-      const noPaymentsCsv = await dataToCSV(
-        noPayments.sort(
-          (a: { lastCommitDate: any }, b: { lastCommitDate: string }) =>
-            b.lastCommitDate.localeCompare(a.lastCommitDate)
-        )
-      );
-      await writeToFile(`${repo.name}-no-payments.csv`, noPaymentsCsv);
-    }
-  } catch (err) {
-    console.log(err);
   }
 }

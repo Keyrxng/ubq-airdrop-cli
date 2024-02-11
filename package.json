@@ -7,6 +7,7 @@
   "scripts": {
     "start": "node dist/index.js",
     "tally": "node dist/index.js tally",
+    "tally-multi-csv": "node dist/index.js tally-multi-csv",
     "tally-from": "node dist/index.js tally-from",
     "single": "node dist/index.js single",
     "help": "node dist/index.js help",
