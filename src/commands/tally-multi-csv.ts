@@ -1,20 +1,14 @@
-import { Command, command, metadata, param } from "clime";
-import { fetchPublicRepositories, processRepo } from "../invoke";
+import { Command, command, metadata } from "clime";
+import { fetchPublicRepositories, processRepo } from "../invoke/invoke";
 import { loadingBar, writeCSV } from "../utils";
 
 @command({
-  brief: "Process a single repository.",
-  description: "Tally the UBQ airdrop for a single repository.",
+  brief: "Processes all repositories and writes repo-specific CSV files.",
+  description: "Tally the UBQ airdrop for all repositories with files for each repo.",
 })
 export default class extends Command {
   @metadata
-  async execute(
-    @param({
-      description: "The repository name or key.",
-      required: false,
-    })
-    _: string
-  ) {
+  async execute() {
     const repos = await fetchPublicRepositories();
 
     const since = "2023-01-01T00:00:00.000Z";
