@@ -18,7 +18,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "20.10.0"
 
       - name: Install Dependencies
         run: yarn install
@@ -33,8 +33,5 @@ jobs:
         with:
           name: ubq-airdrop-csv
           path: |
-            all_repos_all_payments.csv
             all_repos_contributors.csv
-            all_repos_no_payments.csv
             all_repos_decoded_permits.csv
-            all_repos_permits.csv
